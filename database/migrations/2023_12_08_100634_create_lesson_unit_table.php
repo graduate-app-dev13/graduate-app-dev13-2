@@ -8,13 +8,15 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     * 問い合わせ時のカテゴリー選択のカテゴリー名
+     * 授業の情報と単元の紐付け
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('lesson_unit', function (Blueprint $table) {
             $table->id();
-            $table->string('category_name'); //カテゴリー名
+             $table->foreignId('lesson_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('unit_id')->constrained()->cascadeOnDelete();
+            $table->unique(['lesson_id', 'unit_id']);
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('lesson_unit');
     }
 };

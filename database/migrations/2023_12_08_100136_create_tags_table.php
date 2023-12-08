@@ -8,13 +8,13 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     * 問い合わせ時のカテゴリー選択のカテゴリー名
+     * 授業の検索時に条件になるように登録するタグ
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('category_name'); //カテゴリー名
+        Schema::create('tags', function (Blueprint $table) {
+            $table->id();//タグid
+            $table->string('tag_name'); //タグ名
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('tags');
     }
 };

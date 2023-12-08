@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('matchings', function (Blueprint $table) {
             $table->id();
+                        $table->foreignId('lesson_user_reservations_id')->constrained()->onDelete('cascade');//resrvesテーブルのid
+            $table->date('matching_date');//決まった日付
+            $table->time('start_time');//決まった日付
+            $table->time('finish_time');//決まった日付
             $table->timestamps();
         });
     }

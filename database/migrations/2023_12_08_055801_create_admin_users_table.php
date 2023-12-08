@@ -8,11 +8,18 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * 管理者の登録
      */
     public function up(): void
     {
         Schema::create('admin_users', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->integer('admin_level');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
