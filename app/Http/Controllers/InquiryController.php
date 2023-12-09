@@ -56,31 +56,38 @@ class InquiryController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * 　問い合わせ内容をdbに保存
      */
     public function store(Request $request)
     {
-        //問い合わせを保存
-        // db登録
-        $user_id = auth()->user()->id;
+        try {
+            // db登録
+            $user_id = auth()->user()->id;
 
-        //フォームから送信されたデータを取得
-        $category_id = $request->input('category_id');
-        $category = Category::find($category_id);
-        $category_name = $category->category_name;
+            //フォームから送信されたデータを取得
+            $category_id = $request->input('category_id');
+            $category = Category::find($category_id);
+            $category_name = $category->category_name;
 
-        $inquiry = LessonUserInquiry::create([
-            //input.bladeで存在しているlesson_id
-            'lesson_id' => $request->input('lesson_id'),
-            'user_id' => $user_id,
-            'category_id' => $category_id,
-            'category_name' => $category_name,
-            'inquiry_detail' => $request->input('inquiry_detail'),
-        ]);
+            $inquiry = LessonUserInquiry::create([
+                //input.bladeで存在しているlesson_id
+                'lesson_id' => $request->input('lesson_id'),
+                'user_id' => $user_id,
+                'category_id' => $category_id,
+                'category_name' => $category_name,
+                'inquiry_detail' => $request->input('inquiry_detail'),
+            ]);
 
-        // 確認画面にリダイレクト
-        return redirect()->route('inquiry.check', ['id' => $inquiry->id]);
+            // 確認画面にリダイレクト
+            return redirect()->route('inquiry.check', ['id' => $inquiry->id]);
 
+        } catch (\Exception $e) {
+            // エラーメッセージをログに記録
+            \Log::error('Inquiry store error: ' . $e->getMessage());
+
+            // エラーメッセージをセッションに保存してユーザーに通知
+            return redirect()->back()->with('error', '問い合わせできませんでした。');
+        }
     }
 
     /**
