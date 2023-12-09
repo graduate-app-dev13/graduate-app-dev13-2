@@ -53,7 +53,7 @@
 
                 <div class="mt-3">
                     <x-nav-link :href="route('admin.lesson.lessonmenu')" :active="request()->routeIs('dashboard')" class="text-blue-500">
-                        <h3 class="text-sm sm:text-base font-semibold text-gray-800 dark:text-black-200
+                        <h3 class="text-sm sm:text-base font-semibold text-gray-800 dark:text-black-200">
                         {{ __('授業登録管理') }}
                         </h3>
                     </x-nav-link>
@@ -71,7 +71,7 @@
 
                 <div class="mt-3">
                     <x-nav-link :href="route('admin.company.registar')" :active="request()->routeIs('dashboard')" class="text-blue-500">
-                        <h3 class="text-sm sm:text-base font-semibold text-gray-800 dark:text-black-200
+                        <h3 class="text-sm sm:text-base font-semibold text-gray-800 dark:text-black-200">
                         {{ __('会社登録管理') }}
                         </h3>
                     </x-nav-link>
@@ -89,7 +89,7 @@
 
                 <div class="mt-3">
                     <x-nav-link :active="request()->routeIs('dashboard')" class="text-blue-500">
-                        <h3 class="text-sm sm:text-base font-semibold text-gray-800 dark:text-black-200
+                        <h3 class="text-sm sm:text-base font-semibold text-gray-800 dark:text-black-200">
                         {{ __('admin登録管理') }}
                         </h3>
                     </x-nav-link>
@@ -106,7 +106,7 @@
                 <!-- End Icon -->
                 <div class="mt-3">
                     <x-nav-link :href="route('admin.reserve.index')"  :active="request()->routeIs('dashboard')" class="text-blue-500">
-                        <h3 class="text-sm sm:text-base font-semibold text-gray-800 dark:text-black-200
+                        <h3 class="text-sm sm:text-base font-semibold text-gray-800 dark:text-black-200">
                         {{ __('予約管理') }}
                         </h3>
                     </x-nav-link>
