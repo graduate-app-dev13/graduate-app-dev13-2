@@ -1,19 +1,19 @@
 <!--resourses/views/reserve/show.blade.php-->
 @php
-$formattedFirstDate = \Carbon\Carbon::parse($reserve->first_choice_date)->format('m月d日');
-$dayOfWeekFirst = \Carbon\Carbon::parse($reserve->first_choice_date)->isoFormat('ddd');
-$firstStartTime = \Carbon\Carbon::parse($reserve->first_choice_start_time)->format('H:i');
-$firstEndTime = \Carbon\Carbon::parse($reserve->first_choice_end_time)->format('H:i');
+    $formattedFirstDate = \Carbon\Carbon::parse($reserve->first_choice_date)->format('m月d日');
+    $dayOfWeekFirst = \Carbon\Carbon::parse($reserve->first_choice_date)->isoFormat('ddd');
+    $firstStartTime = \Carbon\Carbon::parse($reserve->first_choice_start_time)->format('H:i');
+    $firstEndTime = \Carbon\Carbon::parse($reserve->first_choice_end_time)->format('H:i');
 
-$formattedSecondDate = \Carbon\Carbon::parse($reserve->second_choice_date)->format('m月d日');
-$dayOfWeekSecond = \Carbon\Carbon::parse($reserve->second_choice_date)->isoFormat('ddd');
-$secondStartTime = \Carbon\Carbon::parse($reserve->second_choice_start_time)->format('H:i');
-$secondEndTime = \Carbon\Carbon::parse($reserve->second_choice_end_time)->format('H:i');
+    $formattedSecondDate = \Carbon\Carbon::parse($reserve->second_choice_date)->format('m月d日');
+    $dayOfWeekSecond = \Carbon\Carbon::parse($reserve->second_choice_date)->isoFormat('ddd');
+    $secondStartTime = \Carbon\Carbon::parse($reserve->second_choice_start_time)->format('H:i');
+    $secondEndTime = \Carbon\Carbon::parse($reserve->second_choice_end_time)->format('H:i');
 
-$formattedThirdDate = \Carbon\Carbon::parse($reserve->third_choice_date)->format('m月d日');
-$dayOfWeekThird = \Carbon\Carbon::parse($reserve->third_choice_date)->isoFormat('ddd');
-$thirdStartTime = \Carbon\Carbon::parse($reserve->third_choice_start_time)->format('H:i');
-$thirdEndTime = \Carbon\Carbon::parse($reserve->third_choice_end_time)->format('H:i');
+    $formattedThirdDate = \Carbon\Carbon::parse($reserve->third_choice_date)->format('m月d日');
+    $dayOfWeekThird = \Carbon\Carbon::parse($reserve->third_choice_date)->isoFormat('ddd');
+    $thirdStartTime = \Carbon\Carbon::parse($reserve->third_choice_start_time)->format('H:i');
+    $thirdEndTime = \Carbon\Carbon::parse($reserve->third_choice_end_time)->format('H:i');
 @endphp
 
 
@@ -24,18 +24,15 @@ $thirdEndTime = \Carbon\Carbon::parse($reserve->third_choice_end_time)->format('
     <title>授業予約 確認ページ</title>
     <style>
         /* 追加のCSSスタイルをインラインで記述 */
-                   
         table {
             width: 80%;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
-        
         th, td {
             border: 1px solid #000;
             padding: 10px;
         }
-        
         .text{
             width:70%;
         }
@@ -43,11 +40,9 @@ $thirdEndTime = \Carbon\Carbon::parse($reserve->third_choice_end_time)->format('
             width:15%;
             background-color:rgb(176, 175, 160)
         }
-        
         th, td {
             padding: 10px;
         }
-        
         .my-button {
         font-size: 16px; /* 例えば16pxのフォントサイズを設定 */
         padding: 10px 20px; /* 上下10px、左右20pxのパディングを設定 */
@@ -62,7 +57,7 @@ $thirdEndTime = \Carbon\Carbon::parse($reserve->third_choice_end_time)->format('
         -webkit-transition: background-color 0.3s ease; /* 背景色の変更を滑らかに */
         transition: background-color 0.3s ease; /* 背景色の変更を滑らかに */
         }
-        
+
         .my-button:hover {
         background-color: #0056b3; /* ホバー時の背景色を変更 */
 }
@@ -82,7 +77,7 @@ $thirdEndTime = \Carbon\Carbon::parse($reserve->third_choice_end_time)->format('
                     <tr>
                         <th class="title text-center" colspan="4"><strong>授業情報</strong></th>
                     </tr>
-            　　</thead>
+                </thead>
                 <tr>
                     <td class="title">授業名</td>
                     <td>{{ $lesson->lesson_name }}</td>
@@ -100,14 +95,14 @@ $thirdEndTime = \Carbon\Carbon::parse($reserve->third_choice_end_time)->format('
                 </tr>
             </tbody>
         </table>
-        
-         <table class="table">
+
+        <table class="table">
             <tbody>
                 <thead>
                     <tr>
                         <th class="title text-center" colspan="4"><strong>会社情報</strong></th>
                     </tr>
-            　　</thead>
+                </thead>
                 <tr>
                     <td class="title">担当会社名</td>
                     <td>{{ $company->company_name }}</td>
@@ -156,21 +151,20 @@ $thirdEndTime = \Carbon\Carbon::parse($reserve->third_choice_end_time)->format('
                         <tr>
                             <th class="title text-center" colspan="2"><strong>授業希望日</strong></th>
                         </tr>
-                　　</thead>
+                    </thead>
                     <tr>
-                         <td class="title">第１授業希望日</td>
+                        <td class="title">第１授業希望日</td>
                         <td>{{ $formattedFirstDate }}（{{ $dayOfWeekFirst }}）{{ $firstStartTime }} - {{ $firstEndTime }}</td>
                     </tr>
                     <tr>
-                     　  <td class="title">第２授業希望日</td>
+                        <td class="title">第２授業希望日</td>
                         <td>{{ $formattedSecondDate }}（{{ $dayOfWeekSecond }}）{{ $secondStartTime }} - {{ $secondEndTime }}</td>
                     </tr>
                     <tr>
-                         <td class="title">第３授業希望日</td>
+                        <td class="title">第３授業希望日</td>
                         <td>{{ $formattedThirdDate }}（{{ $dayOfWeekThird }}）{{ $thirdStartTime }} - {{ $thirdEndTime }}</td>
                     </tr>
                     
-                       
                 </tbody>
             </table>
 

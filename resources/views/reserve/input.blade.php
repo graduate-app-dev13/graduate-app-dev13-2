@@ -1,5 +1,4 @@
 <!--resourses/views/reserve/input.blade.php-->
-<!--<!DOCTYPE html>-->
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -13,7 +12,7 @@
                 @csrf
                 @include('common.errors')
                 @isset($lesson)
-                 <!--  授業情報 -->
+                <!--  授業情報 -->
                 <div class="mb-4">
                     <h2 class="text-xl font-semibold mb-2 bg-">授業情報</h2>
                     <label for="" class="block mb-2 bg-amber-100">授業名</label>
@@ -70,7 +69,7 @@
                 <div class="col-span-4 lg:col-span-3">
                     <div class="w-full">
                         <x-input-label for="subject" :value="__('教科')" />
-                        <select id="subject" class="block w-full" name="subject">
+                        <select id="subject" class="block w-full" name="subject" required autofocus>
                             <option value="" {{ request('subject') == '' ? 'selected' : '' }}>---</option>
                             <option value="国語" {{ request('subject') == 'japanease' ? 'selected' : '' }}>国語</option>
                             <option value="算数" {{ request('subject') == 'math' ? 'selected' : '' }}>算数</option>
@@ -102,25 +101,25 @@
                 <div class="mb-4">
                     <h2 class="text-xl font-semibold mt-2">授業希望日</h2>
                 
-                　　<!--第１希望-->
+                    <!--第１希望-->
                     <div class="flex flex-wrap justify-between">
                         <div class="w-full sm:w-1/3">
                             <label for="first_choice_date" class="block mt-2 mb-2">第１授業希望日</label>
                             <input type="date" name="first_choice_date" class="border p-2 w-full" required autofocus/>
                         </div>
-    
+
                         <div class="w-full sm:w-1/3">
                             <label for="first_choice_start_time" class="block mt-2 mb-2">希望開始時間</label>
                             <input type="time" name="first_choice_start_time"  min="08:00" max="16:00" value="08:00" class="border p-2 w-full" required autofocus/>
                         </div>
-    
+
                         <div class="w-full sm:w-1/3">
                             <label for="first_choice_end_time" class="block mt-2 mb-2">希望終了時間</label>
                             <input type="time" name="first_choice_end_time"  min="08:00" max="16:00" value="15:00" class="border p-2 w-full" required autofocus/>
                         </div>
                     </div><!--第１希望-->
 
-　　　　　　　　　　<!--第２希望-->
+                    <!--第２希望-->
                     <div class="flex flex-wrap justify-between">
                         <div class="w-full sm:w-1/3">
                             <label for="second_choice_date" class="block mt-2 mb-2">第２授業希望日</label>
@@ -177,16 +176,14 @@
                         });
                 </script>
                 
-                 <!-- 情報 -->
-   　　　　　　　　　<input type="hidden" name="lesson_id" value="{{ $lesson->id }}"/>
-   
-                <!------------------------------------------------------------------->
-    
-                <!-- 送信ボタン 右よりにしたい-->
-                <div class="mt-6 text-right">
-                    <x-primary-button type="submit" class="bg-yellow-200 px-4 py-2 rounded hover:bg-yeloow-500 ml-auto mr-auto sm:w-1/5">情報を確定</x-primary-button>
-                </div>
-                
-   　　　 </form>
-     </div>
+                <!-- 情報 -->
+            <input type="hidden" name="lesson_id" value="{{ $lesson->id }}"/>
+
+            <!-- 送信ボタン 右よりにしたい-->
+            <div class="mt-6 text-right">
+                <x-primary-button type="submit" class="bg-yellow-200 px-4 py-2 rounded hover:bg-yeloow-500 ml-auto mr-auto sm:w-1/5">情報を確定</x-primary-button>
+            </div>
+
+        </form>
+    </div>
 </x-app-layout>
