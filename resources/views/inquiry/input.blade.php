@@ -49,7 +49,7 @@
                 </div>
     
                 <div class="mb-4">
-                    <label for="" class="block mb-2">学校FAX番号:</label>
+                    <label for="" class="block mb-2">学校住所:</label>
                      <p  class="border p-2 w-full sm:w-2/1">〒{{$school->post_code}}</p>
                      <p  class="border p-2 w-full sm:w-2/1">{{$school->address}}</p>
                 </div>
@@ -66,7 +66,7 @@
                 </div>
                 
                 <div class="mb-4">
-                    <label for="email" class="block mb-2">学校FAX番号:</label>
+                    <label for="email" class="block mb-2">メール:</label>
                     <p  class="border p-2 w-full sm:w-2/1">{{$school->email}}</p>
                 </div>
     

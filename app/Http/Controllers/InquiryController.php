@@ -149,7 +149,7 @@ class InquiryController extends Controller
         $inquiry = LessonUserInquiry::find($id);
         $inquiry -> delete();
 
-        return redirect()->route('dashboard');
+        return redirect()->view('top');
     }
 
     /**
