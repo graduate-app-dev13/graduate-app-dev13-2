@@ -14,7 +14,7 @@
                     <!-- Buttons with adjusted margin for responsive design -->
                     <a href="{{ route('admin.mail.send', ['id' => $id]) }}"
                        class="block bg-blue-400 text-white py-4 px-3 md:px-6 text-lg text-center hover:bg-blue-500 transition ease-in-out duration-300 rounded-full my-2">
-                        企業・学校にお知らせをする      
+                        企業・学校にお知らせをする
                     </a>
                     
                     <a href="{{ route('pdf.matching.output', ['id' => $id]) }}" target="_blank"
