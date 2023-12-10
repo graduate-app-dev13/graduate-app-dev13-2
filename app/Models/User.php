@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'school_id',
     ];
 
     /**
@@ -42,4 +43,36 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    // schoolテーブルのschool_idとのリレーションシップ
+    public function userSchools()
+    {
+        return $this->belongsTo(School::class, 'school_id');
+    }
+
+    // schoolテーブルのschool_idとのリレーションシップ
+    public function Lessons()
+    {
+        return $this->belongsToMany(Lesson::class)->withTimestamps();;
+    }
+
+    public function userLessonUserReservations()
+    {
+        return $this->hasMany(LessonUserReservation::class);
+    }
+
+    public function routeNotificationForMail($notification)
+    {
+    // メールアドレスのみを返す場合
+    return $this->email_address;
+
+    // 名前とメールアドレスを返す場合
+    // return [$this->email_address => $this->name];
+    }
+
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new \App\Notifications\LessonMail());
+    }
 }
