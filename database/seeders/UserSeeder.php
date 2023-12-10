@@ -11,7 +11,7 @@ class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     * ユーザー　教員の登録
+     * ユーザー教員の登録
      */
     public function run(): void
     {
