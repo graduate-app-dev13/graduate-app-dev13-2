@@ -48,7 +48,6 @@
           <a href="{{ route('admin.dashboard') }}">
              <button class="text-left font-bold text-lg text-gray-dark dark:text-gray-200">adminメニューに戻る</button>
           </a>
-                      
 
         </div>
       </div>

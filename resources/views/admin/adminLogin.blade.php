@@ -14,6 +14,8 @@
 
 
     <div class="bg-white p-8 rounded-lg shadow-md w-1/3">
+        <x-input-label>管理者ログイン画面</x-input-label>
+
         @if ($errors->any())
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
                 <ul>
@@ -27,15 +29,15 @@
         <form method="POST" action="{{ route("admin.login") }}">
             @csrf
             <div class="mb-4">
-                <label for="email" class="block text-gray-700 text-sm font-bold mb-2">登録したアドレス</label>
-                <input type="text" id="email" name="email" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500">
+                <x-input-label for="email" class="block text-gray-700 text-sm font-bold mb-2">登録したアドレス</x-input-label>
+                <input type="text" id="email" name="email" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" required autofocus>
             </div>
             <div class="mb-4">
-                <label for="password" class="block text-gray-700 text-sm font-bold mb-2">パスワード</label>
-                <input type="password" id="password" name="password" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500">
+                <x-input-label for="password" class="block text-gray-700 text-sm font-bold mb-2">パスワード</x-input-label>
+                <input type="password" id="password" name="password" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" required autofocus>
             </div>
             <div class="text-center">
-                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800">Login</button>
+                <x-primary-button type="submit" >ログイン</x-primary-button>
             </div>
         </form>
     </div>

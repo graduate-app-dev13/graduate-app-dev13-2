@@ -37,7 +37,7 @@ class InvoiceMailController extends Controller
 
         // メールの雛形
         $data = [
-            'school_name' => $school->school_name .'小学校様',
+            'school_name' => $school->school_name .'小学校',
             'user_name' => $user->name .'様',
             'content' => '予約の内容は、以下の通りURLよりご確認いただけます。',
             'url' => 'https://tokidokineko.sakura.ne.jp/project/pdf/matching/output/'.$id
