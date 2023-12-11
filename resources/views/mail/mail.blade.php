@@ -6,8 +6,9 @@
     <title>授業の予約が成立しました</title>
 </head>
 <body>
-    <p>予約者：{{$user_name}}様</p>
-    <p>学校名：{{$school_name}}</p>
+   
+    <p>{{$school_name}}</p> 
+    <p>予約者：{{$user_name}}</p>
 
     <p>以下の内容で授業の予約が成立しました。</p>
     ーーーー
