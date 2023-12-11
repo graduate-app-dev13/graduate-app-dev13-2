@@ -53,10 +53,10 @@ Route::middleware('admin_users')->group(function () {
     Route::get('/admin/dashboard', function () {
            return view('admin.dashboard');
     })->middleware('auth:admin')->name('admin.dashboard');
-    
+
     //予約一覧
     Route::get('/admin/reserve/index',[ReserveController::class, 'adminIndex'])->name('admin.reserve.index');
-    
+
     //授業情報の登録
     Route::get('/admin/lesson/create', [LessonController::class, 'create'])->name('admin.lesson.create');
     Route::get('/admin/lesson/index', [LessonController::class, 'index'])->name('admin.lesson.index');
