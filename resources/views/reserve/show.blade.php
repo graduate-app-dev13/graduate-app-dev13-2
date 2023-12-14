@@ -64,88 +64,84 @@
 
 
 
-        /* 他の要素に対するスタイルもここで追加できます */
+    /* 他の要素に対するスタイルもここで追加できます */
     </style>
 </head>
 
 <x-app-layout>
-<div class="bg">
-    <div class="container px-6 m-auto">
-        <table class="table grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
-            <tbody>
-                <thead>
+    <div class="bg m-auto">
+        
+        <div class="container px-6 p-4">{{-- ページの真ん中に来るようにしたい。 --}}
+            <table class="table max-w-4xl mx-auto grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
+                <tbody>
+                    <thead>
+                        <tr>
+                            <th class="title text-center" colspan="4"><strong>授業情報</strong></th>
+                        </tr>
+                    </thead>
                     <tr>
-                        <th class="title text-center" colspan="4"><strong>授業情報</strong></th>
+                        <td class="title">授業名</td>
+                        <td>{{ $lesson->lesson_name }}</td>
+                        <td class="title">授業形式</td>
+                        <td>{{ $lesson->lesson_type }}</td>
                     </tr>
-                </thead>
-                <tr>
-                    <td class="title">授業名</td>
-                    <td>{{ $lesson->lesson_name }}</td>
-                    <td class="title">授業形式</td>
-                    <td>{{ $lesson->lesson_type }}</td>
-                </tr>
-                <tr>
-                    <td class="title">授業内容</td>
-                    <td colspan="3">{{ $lesson->lesson_detail }}</td>
-                </tr>
-
-                <tr>
-                    <td class="title">申し込み可能時期</td>
-                    <td colspan="3">{{ $lesson->started_date }}から{{ $lesson->finished_date }}</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <table class="table">
-            <tbody>
-                <thead>
                     <tr>
-                        <th class="title text-center" colspan="4"><strong>会社情報</strong></th>
+                        <td class="title">授業内容</td>
+                        <td colspan="3">{{ $lesson->lesson_detail }}</td>
                     </tr>
-                </thead>
-                <tr>
-                    <td class="title">担当会社名</td>
-                    <td>{{ $company->company_name }}</td>
-                    <td class="title">住所</td>
-                    <td>〒{{ $company->post_code }}{{ $company->address }}</td>
-                </tr>
-                <tr>
-                    
-                </tr>
-            </tbody>
-        </table>
 
-        <table class="table">
-            <tbody>
-                <thead>
                     <tr>
-                        <th class="title text-center" colspan="6"><strong>学校情報</strong></th>
+                        <td class="title">申し込み可能時期</td>
+                        <td colspan="3">{{ $lesson->started_date }}から{{ $lesson->finished_date }}</td>
                     </tr>
-            　　</thead>
-                <tr>
-                    <td class="title">学校名</td>
-                    <td>{{ $school->school_name }}小学校</td>
-                    <td class="title">住所</td>
-                    <td colspan="3">〒{{ $school->post_code }}　{{ $school->address }}</td>
-                </tr>
-                <tr>
-                     <td class="title">担当教員名</td>
-                    <td>{{ $user->name }}</td>
-                     <td class="title">希望内容</td>
-                    <td colspan="3">教科:{{ $reserve->subject }} 学年：{{ $reserve->graduate }}{{ $reserve->number_student }}人</td>
-                </tr>
-                <!--<tr>-->
-                <!--    <td class="title">希望教科</td>-->
-                <!--    <td>学年{{$reserve->graduate}}教科{{$reserve->subject}}</td>-->
-                <!--    <td class="title">児童生徒の人数{{$reserve->number_student}}</td>-->
-                <!--    <td></td>-->
-                <!--</tr>-->
+                </tbody>
+            </table>
 
-                    
-            </tbody>
-        </table>
+            <table class="table max-w-4xl mx-auto">
+                <tbody>
+                    <thead>
+                        <tr>
+                            <th class="title text-center" colspan="4"><strong>会社情報</strong></th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td class="title">担当会社名</td>
+                        <td>{{ $company->company_name }}</td>
+                        <td class="title">住所</td>
+                        <td>〒{{ $company->post_code }}{{ $company->address }}</td>
+                    </tr>
+                </tbody>
+            </table>
 
-            <table class="table">
+            <table class="table max-w-4xl mx-auto">
+                <tbody>
+                    <thead>
+                        <tr>
+                            <th class="title text-center" colspan="6"><strong>学校情報</strong></th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td class="title">学校名</td>
+                        <td>{{ $school->school_name }}小学校</td>
+                        <td class="title">住所</td>
+                        <td colspan="3">〒{{ $school->post_code }}　{{ $school->address }}</td>
+                    </tr>
+                    <tr>
+                        <td class="title">担当教員名</td>
+                        <td>{{ $user->name }}</td>
+                        <td class="title">希望内容</td>
+                        <td colspan="3">教科:{{ $reserve->subject }} 学年：{{ $reserve->graduate }}{{ $reserve->number_student }}人</td>
+                    </tr>
+                    <!--<tr>-->
+                    <!--    <td class="title">希望教科</td>-->
+                    <!--    <td>学年{{$reserve->graduate}}教科{{$reserve->subject}}</td>-->
+                    <!--    <td class="title">児童生徒の人数{{$reserve->number_student}}</td>-->
+                    <!--    <td></td>-->
+                    <!--</tr>-->
+                </tbody>
+            </table>
+
+            <table class="table max-w-4xl mx-auto">
                 <tbody>
                     <thead>
                         <tr>
@@ -164,47 +160,42 @@
                         <td class="title">第３授業希望日</td>
                         <td>{{ $formattedThirdDate }}（{{ $dayOfWeekThird }}）{{ $thirdStartTime }} - {{ $thirdEndTime }}</td>
                     </tr>
-                    
                 </tbody>
             </table>
 
                 @csrf
-                    <section>
-                      <div class="container px-6 m-auto">
+                <section>
+                    <div class="container px-6 m-auto">
                         <div class="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
-                            
-                          <div class="col-span-4">
+                            <div class="col-span-4 max-w-4xl mx-auto">
                                 <div class="section">
-                                <a href="{{ route('reserve.finish',$reserve->id) }}">
-                                <x-primary-button class="ml-3">予約確定</x-primary-button>
-                                </a>
+                                    <a href="{{ route('reserve.finish',$reserve->id) }}">
+                                    <x-primary-button class="ml-3">予約確定</x-primary-button>
+                                    </a>
                                 </div>
-                          </div>
-                          
-                          <div class="col-span-4">
-                                <div class="section">
-                                <form action="{{ route('reserve.edit',$reserve->id) }}" method="GET" class="text-left">
-                                @csrf
-                                <button class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">訂正する</button>
-                                </form>
-                                </div>
-                          </div>
-
-                          <div class="col-span-4">
-                            <div class="section">
-                            <form action="{{ route('reserve.destroy',$reserve->id) }}" method="POST" class="text-left">
-                            @method('delete')
-                            @csrf
-                            <button class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">予約中止</button>
-                            </form>
                             </div>
-                          </div>
+
+                            <div class="col-span-4 max-w-4xl mx-auto">
+                                    <div class="section">
+                                    <form action="{{ route('reserve.edit',$reserve->id) }}" method="GET" class="text-left">
+                                    @csrf
+                                    <button class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">訂正する</button>
+                                    </form>
+                                    </div>
+                            </div>
+
+                            <div class="col-span-4 max-w-4xl mx-auto">
+                                <div class="section">
+                                <form action="{{ route('reserve.destroy',$reserve->id) }}" method="POST" class="text-left">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">予約中止</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                    </section>
-<!-- ここにフォームのデータを隠しフィールドとして追加 -->
+                    </div>
+                </section>
             </div>
         </div>
 </x-app-layout>
-
-  

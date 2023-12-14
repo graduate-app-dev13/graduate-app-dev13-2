@@ -226,50 +226,50 @@
 														<!-- 予約と問い合わせのリンク -->
 														<div class="flex justify-end mt-4">
 																 <a href="{{ url()->previous() }}" class="hover:text-blue-700 focus:text-blue-700">
-																		<x-primary-button class="ml-3">
-																				<h3 class="text-left font-bold text-lg text-blue-500 transition duration-300 ease-in-out">
+																		<x-secondary-button class="ml-3">
+																				<h3 class="text-left font-bold text-lg text-gray-500 transition duration-300 ease-in-out">
 																						戻る
 																				</h3>
-																		</x-primary-button>
+																		</x-secondary-button>
 																</a>
 																<a href="{{ route('reserve.input', $lesson->id) }}" class="hover:text-blue-700 focus:text-blue-700">
-																		<x-primary-button class="ml-3">
+																		<x-secondary-button class="ml-3">
 																				<h3 class="text-left font-bold text-lg text-blue-500 transition duration-300 ease-in-out">
-																						授業予約をする
+																						授業予約
 																				</h3>
-																		</x-primary-button>
+																		</x-secondary-button>
 																</a>
 																<a href="{{ route('inquiry.input', $lesson->id) }}" class="hover:text-red-700 focus:text-red-700">
-																		<x-primary-button class="ml-3">
+																		<x-secondary-button class="ml-3">
 																				<h3 class="text-left font-bold text-lg text-red-500 transition duration-300 ease-in-out">
-																						問い合わせる
+																						問い合わせ
 																				</h3>
-																		</x-primary-button>
+																		</x-secondary-button>
 																</a>
 																	 <!-- あとでみる 状態で条件分岐 -->
 																@if($lesson->users()->where('user_id', Auth::id())->exists())
 																<!-- unfavorite ボタン -->
 																<form action="{{ route('unwatchlater',$lesson) }}" method="POST" class="text-left">
 																	@csrf
-																	<x-primary-button class="ml-3">
+																	<x-secondary-button class="ml-3">
 																			あとでみる
 																		<svg class="h-6 w-6 text-red-500" fill="red" viewBox="0 0 24 24" stroke="red">
 																			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
 																		</svg>
 																		{{ $lesson->users()->count() }}
-																	</x-primary-button>
+																	</x-secondary-button>
 																</form>
 																@else
 																<!-- favorite ボタン -->
 																<form action="{{ route('watchlater',$lesson) }}" method="POST" class="text-left">
 																	@csrf
-																	<x-primary-button class="ml-3">
+																	<x-secondary-button class="ml-3">
 																			あとでみる
 																		<svg class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="gray">
 																			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
 																		</svg>
 																		{{ $lesson->users()->count() }}
-																	</x-primary-button>
+																	</x-secondary-button>
 																</form>
 																@endif
 														</div>

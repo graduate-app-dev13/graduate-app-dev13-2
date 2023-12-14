@@ -181,7 +181,7 @@
 
             <!-- 送信ボタン 右よりにしたい-->
             <div class="mt-6 text-right">
-                <x-primary-button type="submit" class="bg-yellow-200 px-4 py-2 rounded hover:bg-yeloow-500 ml-auto mr-auto sm:w-1/5">情報を確定</x-primary-button>
+                <x-primary-button type="submit">決　定</x-primary-button>
             </div>
 
         </form>
