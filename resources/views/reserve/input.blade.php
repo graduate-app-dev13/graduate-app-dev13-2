@@ -73,8 +73,8 @@
                             <option value="" {{ request('subject') == '' ? 'selected' : '' }}>---</option>
                             <option value="国語" {{ request('subject') == 'japanease' ? 'selected' : '' }}>国語</option>
                             <option value="算数" {{ request('subject') == 'math' ? 'selected' : '' }}>算数</option>
-                            <option value="理科" {{ request('subject') == 'society' ? 'selected' : '' }}>社会</option>
-                            <option value="社会" {{ request('subject') == 'science' ? 'selected' : '' }}>理科</option>
+                            <option value="社会" {{ request('subject') == 'society' ? 'selected' : '' }}>社会</option>
+                            <option value="理科" {{ request('subject') == 'science' ? 'selected' : '' }}>理科</option>
                             <option value="外国語" {{ request('subject') == 'english' ? 'selected' : '' }}>外国語</option>
                             <option value="音楽" {{ request('subject') == 'music' ? 'selected' : '' }}>音楽</option>
                             <option value="図工" {{ request('subject') == 'art_and_crafts' ? 'selected' : '' }}>図工</option>
