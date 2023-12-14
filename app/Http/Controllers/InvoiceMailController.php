@@ -43,9 +43,16 @@ class InvoiceMailController extends Controller
             'url' => 'https://tokidokineko.sakura.ne.jp/project/pdf/matching/output/'.$id
         ];
 
-        Mail::to($email)->send(new MailForm($data));
+        try {
+            //メールが送ることができたら、　return redirect('/admin/dashboard');をする
+            Mail::to($email)->send(new MailForm($data));
+            return redirect('/admin/dashboard');
 
-        return redirect('/admin/dashboard');
+        } catch (\Exception $e) {
 
-    }
+            //メールを送ることができなければ、エラーの表示
+            return redirect()->back()->withErrors('メールの送信に失敗しました。');
+
+        }
+}
 }

@@ -1,7 +1,7 @@
 # SPOT TEACHER (docker.ver)
-
+学校と企業を授業マッチングサービス
 # 開発環境
-docker 
+docker
 laravel sail
 blade
 
