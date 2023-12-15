@@ -4,45 +4,44 @@
         <div class="flex justify-between h-20">
             <div class="flex">
                 <!-- Logo -->
-                 <div class="shrink-0 items-center hidden space-x-8 sm:-my-px  sm:flex">
-            　　　　<img class="rounded-t-xl h-10 w-auto" src="{{ asset('images/susan_spot_teacher.png') }}" alt="Image Description">
-        　　　　</div>
-                
+                <div class="shrink-0 items-center hidden space-x-8 sm:-my-px  sm:flex">
+                <img class="rounded-t-xl h-10 w-auto" src="{{ asset('images/susan_spot_teacher.png') }}" alt="Image Description">
+                </div>
+
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('top')" :active="request()->routeIs('dashboard')">
                         {{ __('TOP') }}
                     </x-nav-link>
                 </div>
-                @if(Auth::check()) 
+                @if(Auth::check())
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('watchlater.index')" :active="request()->routeIs('dashboard')">
                         {{ __('あとでみる') }}
                     </x-nav-link>
                 </div>
-                
+
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('reserve.userreserve')" :active="request()->routeIs('dashboard')">
                         {{ __('ユーザー履歴') }}
                     </x-nav-link>
                 </div>
-                
-                 <!-- Navigation Links -->
+
+                <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('reserve.schoolreserve')" :active="request()->routeIs('dashboard')">
                         {{ __('学校履歴') }}
                     </x-nav-link>
                 </div>
                 @endif
-                
-                <!-- 🔽 検索画面へのリンクを追加 -->
-               <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-               <x-nav-link :href="route('search.index')" :active="request()->routeIs('search.input')">
-                        {{ __('授業検索') }}
-               </x-nav-link>
-              </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('search.index')" :active="request()->routeIs('search.input')">
+                            {{ __('授業検索') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -50,16 +49,16 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                 
+
                         <div class="px-4">
-                         @if(Auth::check()) 
+                        @if(Auth::check()) 
                             <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                         @else
+                        @else
                             <div class=" sm:top-0 sm:right-0 p-6 text-right z-10">
                                 <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ログイン</a>
-                                <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">登録</a>
+                                {{-- <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">登録</a> --}}
                             </div>
-                         @endif
+                            @endif
                         </div>
 
 
@@ -68,7 +67,7 @@
                                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            
+
                         </button>
                     </x-slot>
 
@@ -80,7 +79,6 @@
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
@@ -110,7 +108,7 @@
                 {{ __('TOP') }}
             </x-responsive-nav-link>
         </div>
-            @if(Auth::check()) 
+            @if(Auth::check())
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('watchlater.index')" :active="request()->routeIs('dashboard')">
                 {{ __('あとでみる') }}
@@ -148,7 +146,6 @@
                         </div>
                      @endif
                 </div>
-   
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
