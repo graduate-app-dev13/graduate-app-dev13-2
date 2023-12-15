@@ -2,9 +2,12 @@
 学校と企業を授業マッチングサービス
 
 # 開発環境
-docker
-laravel sail
-blade
+バックエンド：Laravel MySQL
+フロントエンド：JavaScript/Tailwind CSS
+その他：PHPMyAdmin　VSCode　Git/GitHub
+開発環境：docker
+       (Amazom EC2/AWS Cloud9　Mac dockerから移行)
+
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
