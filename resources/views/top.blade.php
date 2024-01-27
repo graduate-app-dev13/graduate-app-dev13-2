@@ -102,10 +102,9 @@
   </div>
   <!-- CSSスタイルの定義 -->
     <style>
-        /* すべての画像を指定したサイズに調整 */
         img {
-            width: 300px; /* 幅を適切なピクセル数に変更 */
-            height: 300px; /* 高さを適切なピクセル数に変更 */
+            width: 300px; 
+            height: 300px;
         }
     </style>
   <!-- End Card -->
