@@ -14,11 +14,11 @@
   <div class="">
   @include('components.searchform')
   </div>
-  
+
   <!-- Grid -->
   <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 lg:mb-14">
-    
-       <!-- Card -->
+
+      <!-- Card -->
         <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition " href="">
       <div class="aspect-w-16 aspect-h-9">
         <img class="w-full object-cover rounded-t-xl" src="{{ asset('images/韓国1.jpg') }}" >
@@ -33,9 +33,9 @@
       </div>
     </a>
     <!-- End Card -->
-    
-     <!-- Card -->
-       <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition " href="">
+
+    <!-- Card -->
+      <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition " href="">
       <div class="aspect-w-16 aspect-h-9">
         <img class="w-full object-cover rounded-t-xl" src="{{ asset('images/日本舞踊1.jpeg') }}" alt="Image Description">
       </div>
@@ -49,7 +49,7 @@
       </div>
     </a>
     <!-- End Card -->
-    
+
     <!-- Card -->
     <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition " href="">
       <div class="aspect-w-16 aspect-h-9">
@@ -65,7 +65,7 @@
       </div>
     </a>
     <!-- End Card -->
-    
+
     <!-- Card -->
     <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition " href="">
       <div class="aspect-w-16 aspect-h-9">
@@ -102,10 +102,9 @@
   </div>
   <!-- CSSスタイルの定義 -->
     <style>
-        /* すべての画像を指定したサイズに調整 */
         img {
-            width: 300px; /* 幅を適切なピクセル数に変更 */
-            height: 300px; /* 高さを適切なピクセル数に変更 */
+            width: 300px; 
+            height: 300px;
         }
     </style>
   <!-- End Card -->
