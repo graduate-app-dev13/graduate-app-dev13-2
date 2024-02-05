@@ -18,7 +18,7 @@ class SendTest implements ShouldQueue
      */
     public function __construct()
     {
-        //pr のフローテスト
+        //pr のフローテスト.  mergeのタイミングによるコンフリクトのチェック
     }
 
     /**
