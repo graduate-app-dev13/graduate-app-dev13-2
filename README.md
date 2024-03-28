@@ -8,6 +8,25 @@
 開発環境：docker
        (Amazom EC2/AWS Cloud9　Mac dockerから移行)
 
+# 環境構築
+このドキュメントでは、プロジェクトの環境構築手順について説明します。
+### GitHubリポジトリのクローン
+ローカル環境にGitHubのリポジトリをクローンします。
+```bash
+git clone <リポジトリのURL>
+```
+### dockerを使う
+#### dockerの起動
+```
+$ sail up -d
+*localで起動ができるかチェックをする。
+```
+### dbを反映させる
+```
+$ php artisan migrate
+```
+*dbを構築する
+
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
