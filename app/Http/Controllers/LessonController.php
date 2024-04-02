@@ -14,12 +14,10 @@ class LessonController extends Controller
     /**
      * 授業の登録管理（管理者）
      */
-     
      public function lessonmenu()
     {
         return response()->view('lesson.lessonmenu');
     }
-
     /**
      * 授業の一覧（ユーザー）
      */
@@ -28,17 +26,14 @@ class LessonController extends Controller
         $lessons = Lesson::getAllOrderByUpdated_at();
         return response()->view('lesson.index',compact('lessons'));
     }
-
     /**
      * //授業の登録画面(管理者)
      */
     public function create()
     {
         $companies = Company::all();
-
         return response()->view('lesson.create',compact('companies'));
     }
-
     /**
      * //授業の登録処理
      */
@@ -87,13 +82,10 @@ class LessonController extends Controller
             ->withInput()
             ->withErrors($validator);
         }
-
         $result = Lesson::create($request->all());
 
-        // 授業一覧（管理者）ページに移動
         return redirect()->route('lesson.index');
     }
-
     /**
      * 授業の詳細表示
      */
@@ -102,7 +94,6 @@ class LessonController extends Controller
         $lesson = Lesson::find($id);
         return view('lesson.show', compact('lesson'));
     }
-
     /**
      * 授業の登録内容の編集（管理者）
      */
@@ -112,7 +103,6 @@ class LessonController extends Controller
         $lesson = Lesson::find($id);
         return view('lesson.edit', compact('lesson'));
     }
-
     /**
      * 業の登録内容の更新（管理者）
      */
@@ -147,14 +137,12 @@ class LessonController extends Controller
             'started_date' => 'required|date',
             'finished_date' => 'required|date',
         ]);
-
         //授業情報の更新
         $lesson = Lesson::find($id);
         $lesson->update($validatedData);
 
         return redirect()->route('lesson.index');
     }
-
     /**
      * 授業情報の削除
      */

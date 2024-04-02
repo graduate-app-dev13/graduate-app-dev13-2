@@ -58,7 +58,10 @@ Route::middleware('admin_users')->group(function () {
     Route::get('/admin/reserve/index',[ReserveController::class, 'adminIndex'])->name('admin.reserve.index');
 
     //授業情報の登録
-    Route::get('/admin/lesson/create', [LessonController::class, 'create'])->name('admin.lesson.create');
+    Route::get('/admin/lesson/create', function () {
+        return view('admin.lesson.create');
+    })->name('admin.lesson.create');
+
     Route::get('/admin/lesson/index', [LessonController::class, 'index'])->name('admin.lesson.index');
     Route::get('/admin/lesson/lessonmenu', [LessonController::class, 'lessonmenu'])->name('admin.lesson.lessonmenu');
     Route::resource('/admin/lesson', LessonController::class);
