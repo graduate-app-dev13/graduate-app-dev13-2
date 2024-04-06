@@ -54,16 +54,12 @@ class LessonSearchController extends Controller
      */
     public function show(string $id)
     {
-        // idに一致するレコードを取得
-        $lesson = Lesson::find($id);
+        $lesson = Lesson::with('company')->find($id);
 
-        $company = Company::find($lesson->company_id);
+        $Data = [
+                'lesson' => $lesson,
+        ];
 
-        // ビューにデータを渡す
-        return view('search.show',
-            [
-            'lesson' => $lesson,
-            'company'=>$company
-            ]);
+        return view('search.show', $Data);
     }
 }
