@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
 // LessonSearch 授業検索
 use App\Http\Controllers\LessonSearchController;
 //DomPDF　予約　申込書 授業確定書　PDFの生成
@@ -13,7 +12,6 @@ use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\InquiryController;
 // WatchLater　あとでみる
 use App\Http\Controllers\WatchLaterController;
-
 //admin login　管理者のログイン
 use App\Http\Controllers\LoginController;
 //admin lesson 授業情報のcrud

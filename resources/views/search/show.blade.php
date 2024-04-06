@@ -117,7 +117,7 @@
  
 																		<!--授業内容のラベル-->
 																		<p class="mt-4 bg-amber-50 text-lg">会社名</p>
-																		<p class="mt-4">{{ $company->company_name }}</p>
+																		<p class="mt-4">{{ $lesson->company->company_name }}</p>
 																		<!--授業内容のラベル-->
 																		<p class="mt-4 bg-amber-50 text-lg">授業詳細</p>
 																		<p class="mt-4">{{ $lesson->lesson_detail }}</p>

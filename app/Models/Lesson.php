@@ -37,8 +37,8 @@ class Lesson extends Model
     }
     
     //Companyテーブルと結合
-    public function compnanyLessons()
+    public function company()
     {
-        return $this->belongsTo(Company::class,'compnay_id');
+        return $this->belongsTo(Company::class,'company_id');
     }
 }
