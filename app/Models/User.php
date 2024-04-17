@@ -64,15 +64,15 @@ class User extends Authenticatable
 
     public function routeNotificationForMail($notification)
     {
-    // メールアドレスのみを返す場合
-    return $this->email_address;
+        // メールアドレスのみを返す場合
+        return $this->email_address;
 
-    // 名前とメールアドレスを返す場合
-    // return [$this->email_address => $this->name];
+        // 名前とメールアドレスを返す場合
+        // return [$this->email_address => $this->name];
     }
 
-    public function sendEmailVerificationNotification()
-    {
-        $this->notify(new \App\Notifications\LessonMail());
-    }
+    // public function sendEmailVerificationNotification()
+    // {
+    //     $this->notify(new \App\Notifications\LessonMail());
+    // }
 }

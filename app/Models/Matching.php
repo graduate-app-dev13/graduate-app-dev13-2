@@ -10,8 +10,8 @@ class Matching extends Model
     use HasFactory;
 
     protected $fillable = [
-        'lesson_user_reservations_id', 
-        'matching_date','start_time',
+        'lesson_user_reservations_id',
+        'matching_date', 'start_time',
         'finish_time'
     ];
 }
