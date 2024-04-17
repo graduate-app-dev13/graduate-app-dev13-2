@@ -15,7 +15,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('subjects', function (Blueprint $table) {
-            $table->id();//教科id
+            $table->id(); //教科id
             $table->foreignId('lesson_id')->constrained()->cascadeOnDelete();
             $table->boolean('Japanese'); //国語
             $table->boolean('Mathematics'); //算数
