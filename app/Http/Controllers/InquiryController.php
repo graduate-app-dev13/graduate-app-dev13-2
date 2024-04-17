@@ -25,7 +25,7 @@ class InquiryController extends Controller
     {
         //問い合わせ一覧
         $inquirys = LessonUserInquiry::getAllOrderByUpdated_at();
-        return response()->view('inquiry.index',compact('inquirys'));
+        return response()->view('inquiry.index', compact('inquirys'));
     }
 
     /**
@@ -34,7 +34,7 @@ class InquiryController extends Controller
     public function create($id)
     {
         //問い合わせを作成する画面
-         //選択に応じて授業データ取得
+        //選択に応じて授業データ取得
         $lesson = Lesson::find($id);
         //ログインしているユーザーの情報取得
         $teacher = auth()->user();
@@ -80,10 +80,9 @@ class InquiryController extends Controller
 
             // 確認画面にリダイレクト
             return redirect()->route('inquiry.check', ['id' => $inquiry->id]);
-
         } catch (\Exception $e) {
             // エラーメッセージをログに記録
-            \Log::error('Inquiry store error: ' . $e->getMessage());
+            // \Log::error('Inquiry store error: ' . $e->getMessage());
 
             // エラーメッセージをセッションに保存してユーザーに通知
             return redirect()->back()->with('error', '問い合わせできませんでした。');
@@ -97,7 +96,7 @@ class InquiryController extends Controller
     public function check(string $id)
     {
         $inquiry = LessonUserInquiry::find($id);
-        return response()->view('inquiry.check',['inquiry' =>  $inquiry]);
+        return response()->view('inquiry.check', ['inquiry' =>  $inquiry]);
     }
 
     /**
@@ -106,7 +105,7 @@ class InquiryController extends Controller
     public function edit(string $id)
     {
         //問い合わせ内容の編集
-                // LessonUserReservationsテーブルの$idの情報を取得
+        // LessonUserReservationsテーブルの$idの情報を取得
         $inquiry = LessonUserInquiry::find($id);
         //ログインしているユーザーの情報取得
         $teacher = auth()->user();
@@ -143,7 +142,7 @@ class InquiryController extends Controller
         ]);
 
         // 確認画面にリダイレクト
-        return redirect()->route('inquiry.check' ,['id' => $inquiry->id]);
+        return redirect()->route('inquiry.check', ['id' => $inquiry->id]);
         // ['inquiry' => $inquiry->id]
     }
 
@@ -154,7 +153,7 @@ class InquiryController extends Controller
     {
         //lesson_user_reservationsのdbから削除
         $inquiry = LessonUserInquiry::find($id);
-        $inquiry -> delete();
+        $inquiry->delete();
 
         return redirect()->view('top');
     }
