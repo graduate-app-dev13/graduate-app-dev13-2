@@ -35,7 +35,7 @@ class LessonSearchController extends Controller
         $lessons = $query->get();
 
         $Data = [
-            'lesson' => $lessons,
+            'lessons' => $lessons,
         ];
 
         return view('search.index', $Data);

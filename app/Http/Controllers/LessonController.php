@@ -82,6 +82,7 @@ class LessonController extends Controller
                 ->withInput()
                 ->withErrors($validator);
         }
+        
         $result = Lesson::create($request->all());
 
         return redirect()->route('lesson.index');
