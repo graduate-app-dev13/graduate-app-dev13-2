@@ -2,7 +2,7 @@
 
 namespace App\Traits;
 
-trait LessonSeachScopeTraitTrait {
+trait LessonSearchScopeTraitTrait {
 
     //使い回しそうな処理をまとめて記述をする！！
 
