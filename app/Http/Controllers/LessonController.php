@@ -95,16 +95,15 @@ class LessonController extends Controller
         return view('lesson.show', compact('lesson'));
     }
     /**
-     * 授業の登録内容の編集（管理者）
+     * 授業情報の更新画面
      */
     public function edit(string $id)
     {
-        //授業情報の更新
         $lesson = Lesson::find($id);
         return view('lesson.edit', compact('lesson'));
     }
     /**
-     * 業の登録内容の更新（管理者）
+     * 授業登録内容の更新（管理者）
      */
     public function update(Request $request, string $id)
     {
@@ -137,7 +136,6 @@ class LessonController extends Controller
             'started_date' => 'required|date',
             'finished_date' => 'required|date',
         ]);
-        //授業情報の更新
         $lesson = Lesson::find($id);
         $lesson->update($validatedData);
 
