@@ -55,9 +55,11 @@ class LessonSearchController extends Controller
     public function show(string $id)
     {
         $lesson = Lesson::with('company')->find($id);
+        $educationTypes = Lesson::getEducationTypes();
 
         $Data = [
             'lesson' => $lesson,
+            'educationTypes' => $educationTypes,
         ];
 
         return view('search.show', $Data);
