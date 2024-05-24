@@ -6,6 +6,7 @@
     </div>
 
     <div class="bg-white max-w-300 max-w-screen-xl mx-auto h-auto overflow-hidden shadow-sm sm:rounded-lg py-5">
+        {{ $lessons->links() }}
         @if ($lessons->isEmpty())
             <p class="text-center text-gray-500 mt-8">検索条件に一致する授業がありません。</p>
         @else

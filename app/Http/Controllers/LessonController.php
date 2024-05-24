@@ -23,7 +23,7 @@ class LessonController extends Controller
      */
     public function index()
     {
-        $lessons = Lesson::getAllOrderByUpdated_at();
+        $lessons = Lesson::getAllOrderByUpdated_at()->paginate(10)->setPageName('lessonIndex');
         return response()->view('lesson.index', compact('lessons'));
     }
     /**

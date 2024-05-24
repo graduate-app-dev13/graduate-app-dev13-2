@@ -32,13 +32,13 @@ class LessonSearchController extends Controller
             $query->where($education, true);
         }
 
-        $lessons = $query->get();
+        $lessons = $query->paginate(10)->withPath();
 
         $Data = [
             'lessons' => $lessons,
         ];
 
-        return view('search.index', $Data);
+        return view('search.search-index', $Data);
     }
 
     /**
