@@ -8,12 +8,12 @@
     */
 
 return [
-    'previous' => '&laquo; 前へ',
-    'next' => '次へ &raquo;',
-    'first' => '最初へ',
-    'last' => '最後へ',
-    'showing' => '表示中',
-    'to' => 'から',
-    'of' => 'の',
-    'results' => '件中',
+    'previous' => '&lsaquo; Previous',
+    'next' => 'Next &rsaquo;',
+    'first' => 'First',
+    'last' => 'Last',
+    'showing' => 'Showing',
+    'to' => 'to',
+    'of' => 'of',
+    'results' => 'results',
 ];

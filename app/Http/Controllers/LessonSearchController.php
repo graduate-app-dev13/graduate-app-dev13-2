@@ -32,7 +32,7 @@ class LessonSearchController extends Controller
             $query->where($education, true);
         }
 
-        $lessons = $query->paginate(10)->withPath();
+        $lessons = $query->paginate(10)->setPageName('lessons');
 
         $Data = [
             'lessons' => $lessons,
