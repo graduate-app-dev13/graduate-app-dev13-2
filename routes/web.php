@@ -96,7 +96,7 @@ Route::get('/pdf/matching/output/{id}', [PdfController::class, 'matchingoutput']
 Route::middleware('auth')->group(function () {
 
     //reserve 授業の予約
-    Route::get('/reserve/input/{id}', [ReserveController::class, 'input'])->name('reserve.input');
+    Route::get('/reserve/input/{id}', [ReserveController::class, 'input'])->name('reserve.reserve-input');
     Route::get('/reserve/finish/{id}', [ReserveController::class, 'finish'])->name('reserve.finish');
     Route::get('/reserve/show/{id}', [ReserveController::class, 'show'])->name('reserve.show');
     Route::get('/reserve/.destory/{id}', [ReserveController::class, 'destory'])->name('reserve.destory');
