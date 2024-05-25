@@ -13,39 +13,39 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lessons', function (Blueprint $table) {
-            $table->id();//授業id
-            $table->foreignId('company_id')->constrained()->cascadeOnDelete();//企業id
-            $table->string('lesson_name');//授業名
-            $table->string('lesson_detail');//授業の詳細内容
-            $table->string('lesson_type');//授業のタイプ オンライン、対面
+            $table->id(); //授業id
+            $table->foreignId('company_id')->constrained()->cascadeOnDelete(); //企業id
+            $table->string('lesson_name'); //授業名
+            $table->string('lesson_detail'); //授業の詳細内容
+            $table->string('lesson_type'); //授業のタイプ オンライン、対面
             $table->boolean('supports_career_edu'); //キャリア教育かどうか
-    
-            $table->text('child_preparation_item')->nullable();//子どもの準備物
-            $table->text('venue_preparation_item')->nullable();//会場の準備物
-            $table->string('venue_location')->nullable();// 授業実施場所
-            
-            $table->boolean('japanease')->default(false);//国語
-            $table->boolean('math')->default(false);//算数
-            $table->boolean('society')->default(false);//社会
-            $table->boolean('science')->default(false);//理科
-            $table->boolean('english')->default(false);//外国語
-            $table->boolean('music')->default(false);//音楽
-            $table->boolean('art_and_crafts')->default(false);//図工
-            $table->boolean('home_economics')->default(false);//家庭科
-            $table->boolean('physical_education')->default(false);//体育
-            $table->boolean('life_skills')->default(false);//生活
-            $table->boolean('ethics')->default(false);//道徳
-            $table->boolean('integrated_studies')->default(false);//総合
-            $table->boolean('special_activities')->default(false);//特別活動
-            $table->boolean('club_activities')->default(false);//クラブ活動
-            $table->boolean('one')->default(false);//１年生
-            $table->boolean('two')->default(false);//２年生
-            $table->boolean('three')->default(false);//３年生
-            $table->boolean('four')->default(false);//４年生
-            $table->boolean('five')->default(false);//５年生
-            $table->boolean('six')->default(false);//６年生
-            $table->boolean('seven')->default(false);//特別支援
-            
+
+            $table->text('child_preparation_item')->nullable(); //子どもの準備物
+            $table->text('venue_preparation_item')->nullable(); //会場の準備物
+            $table->string('venue_location')->nullable(); // 授業実施場所
+
+            $table->boolean('japanease')->default(false); //国語
+            $table->boolean('math')->default(false); //算数
+            $table->boolean('society')->default(false); //社会
+            $table->boolean('science')->default(false); //理科
+            $table->boolean('english')->default(false); //外国語
+            $table->boolean('music')->default(false); //音楽
+            $table->boolean('art_and_crafts')->default(false); //図工
+            $table->boolean('home_economics')->default(false); //家庭科
+            $table->boolean('physical_education')->default(false); //体育
+            $table->boolean('life_skills')->default(false); //生活
+            $table->boolean('ethics')->default(false); //道徳
+            $table->boolean('integrated_studies')->default(false); //総合
+            $table->boolean('special_activities')->default(false); //特別活動
+            $table->boolean('club_activities')->default(false); //クラブ活動
+            $table->boolean('one')->default(false); //１年生
+            $table->boolean('two')->default(false); //２年生
+            $table->boolean('three')->default(false); //３年生
+            $table->boolean('four')->default(false); //４年生
+            $table->boolean('five')->default(false); //５年生
+            $table->boolean('six')->default(false); //６年生
+            $table->boolean('seven')->default(false); //特別支援
+
             $table->boolean('sdgs_edu')->default(false);                 // ①SDGs教育
             $table->boolean('info_edu')->default(false);                 // ②情報教育
             $table->boolean('ict_edu')->default(false);                  // ③ICT教育
@@ -91,7 +91,7 @@ return new class extends Migration
             $table->boolean('library_use_edu')->default(false);     // 43図書館活用教育
             $table->boolean('nie_edu')->default(false);             // 44ＮＩＥ教育（新聞を学校教育に取り入れる）
             $table->boolean('posting_edu')->default(false);         // 45掲示教育
-             
+
             $table->string('image')->nullable(); // 画像を保存するカラムを追加します
             $table->string('image_path_one')->nullable(); // 授業の画像1のパス
             $table->string('image_path_two')->nullable(); // 授業の画像2のパス
@@ -104,9 +104,9 @@ return new class extends Migration
             $table->string('image_path_nine')->nullable(); // 授業の画像9のパス
             $table->string('image_path_ten')->nullable(); // 授業の画像10のパス
             $table->string('image_path_eleven')->nullable(); // 授業の画像11のパス
-            
-            $table->date('started_date');//実施可能期間 スタート
-            $table->date('finished_date');//実施可能期間 ゴール
+
+            $table->date('started_date'); //実施可能期間 スタート
+            $table->date('finished_date'); //実施可能期間 ゴール
             $table->boolean('is_reservable')->default(true); // 予約可能
 
             $table->timestamps();
@@ -122,9 +122,4 @@ return new class extends Migration
     }
 
     //中間テーブル.  授業の予約時の授業とユーザーの登録
-    // lesson_user_reservations
-        public function users()
-      {
-        return $this->belongsToMany(User::class)->withTimestamps();
-      }
 };

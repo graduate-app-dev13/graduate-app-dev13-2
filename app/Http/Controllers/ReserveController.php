@@ -73,7 +73,7 @@ class ReserveController extends Controller
 
          // 取得したユーザーIDを使用して予約を取得します
         $reservations = LessonUserReservation::whereIn('user_id', $userIds)
-            ->with('lesson') 
+            ->with('lesson')
             ->orderBy('created_at', 'desc')
             ->get();
 
@@ -84,14 +84,6 @@ class ReserveController extends Controller
         // 予約とレッスンのデータを含むビューを返します
         return response()->view('reserve.schoolreserve', ['reservations' => $reservations, 'lessons' => $lessons]);
     }
-    /**
-     * Show the form for creating a new resource.==================================
-     */
-    public function create()
-    {
-
-    }
-    // ============================================================================
     //授業の一覧画面テスト用
     public function testindex()
     {
@@ -99,7 +91,9 @@ class ReserveController extends Controller
         $lessons = Lesson::getAllOrderByUpdated_at();
         return response()->view('reserve.testindex',['lessons' => $lessons]);
     }
-
+    /**
+     *
+     */
     public function input($id)
     {
         //選択に応じて授業データ取得
@@ -112,7 +106,7 @@ class ReserveController extends Controller
         // $lessonデータが見つかった場合
         if ($lesson) {
             // ビューにデータを渡して表示
-            return view('reserve.input', [
+            return view('reserve.reserve-input', [
                 'lesson' => $lesson,
                 'school' => $school,
                 'user' => $user,
@@ -206,7 +200,7 @@ class ReserveController extends Controller
         $user = auth()->user();
         //申し込みをする人に応じて学校データ取得
         $school = School::find($user->school_id);
-        
+
         // $reserveが見つからない場合のエラーハンドリング
         if (!$reserve) {
             return abort(404);
@@ -214,9 +208,8 @@ class ReserveController extends Controller
 
         // LessonUserReservationsテーブルのidを指定のlesson_idの授業を情報をlessonsテーブルから取得
         $lesson = Lesson::find($reserve->lesson_id);
-        
         $company = Company::find($lesson->company_id);
-        
+
         // $lessonが見つからない場合のエラーハンドリング
         if (!$lesson) {
             return abort(404);
@@ -243,7 +236,7 @@ class ReserveController extends Controller
 
         if ($reserve) {
             // LessonUserReservationsテーブルのidを指定のlesson_idの授業を情報をlessonsテーブルから取得
-          
+
             //reserve/show.bladeを表示する処理
             return response()->view('reserve.finish', ['reserve' => $reserve]);
         } else {
@@ -264,9 +257,9 @@ class ReserveController extends Controller
         $teacher = auth()->user();
         //申し込みをする人に応じて学校データ取得
         $school = School::find($teacher->school_id);
-        
+
         $lesson = Lesson::find($reserve->lesson_id);
-        
+
         return response()->view('reserve.edit', [
             'reserve' => $reserve,
             'lesson' => $lesson,

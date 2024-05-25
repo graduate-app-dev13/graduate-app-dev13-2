@@ -1,28 +1,25 @@
 <?php
-// LessonSearchController.php
-// 授業検索　ユーザー
+
 namespace App\Http\Controllers;
 
 use Validator;
 use Illuminate\Http\Request;
 use App\Models\Lesson;
-use App\Models\Company;
-
+// 授業検索
 class LessonSearchController extends Controller
 {
     /**
-     * 検索結果の表示
+     * 検索結果の表示(user)
      */
     public function index(Request $request)
     {
         $query = Lesson::query();
 
-        // 学年と教科の選択を取得
+        // 学年と教科の選択
         $grade = $request->input('grade');
         $subject = $request->input('subject');
         $education = $request->input('education');
 
-        // 学年と教科の選択に応じてクエリを組み立てる
         if (!empty($grade)) {
             $query->where($grade, true);
         }
@@ -35,29 +32,34 @@ class LessonSearchController extends Controller
             $query->where($education, true);
         }
 
-        $lessons = $query->get();
+        $lessons = $query->paginate(10)->setPageName('lessons');
 
-        return view('search.index', ['lessons' => $lessons]);
+        $Data = [
+            'lessons' => $lessons,
+        ];
+
+        return view('search.search-index', $Data);
     }
 
     /**
-     * 検索入力画面の表示
+     * 検索入力画面の表示（user)
      */
     public function input()
     {
-        //検索画面への移動
         return response()->view('search.input');
     }
 
     /**
-     * //検索した授業の詳細表示
+     * 授業詳細(user)
      */
     public function show(string $id)
     {
         $lesson = Lesson::with('company')->find($id);
+        $educationTypes = Lesson::getEducationTypes();
 
         $Data = [
-                'lesson' => $lesson,
+            'lesson' => $lesson,
+            'educationTypes' => $educationTypes,
         ];
 
         return view('search.show', $Data);

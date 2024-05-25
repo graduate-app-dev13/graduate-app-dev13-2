@@ -8,20 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class LessonUserReservation extends Model
 {
     use HasFactory;
-    
-     protected $table = 'lesson_user_reservations';
-    
-     protected $fillable = [
-    'user_id', 'lesson_id', 'first_choice_date', 'first_choice_start_time', 
-    'first_choice_end_time', 'second_choice_date', 'second_choice_start_time', 
-    'second_choice_end_time', 'third_choice_date', 'third_choice_start_time', 
-    'third_choice_end_time','graduate','number_student','subject'
-        ];
 
-    
+    protected $table = 'lesson_user_reservations';
+
+    protected $fillable = [
+        'user_id', 'lesson_id', 'first_choice_date', 'first_choice_start_time',
+        'first_choice_end_time', 'second_choice_date', 'second_choice_start_time',
+        'second_choice_end_time', 'third_choice_date', 'third_choice_start_time',
+        'third_choice_end_time', 'graduate', 'number_student', 'subject'
+    ];
+
+
     public function user()
     {
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function lesson()
@@ -33,11 +33,10 @@ class LessonUserReservation extends Model
     {
         return self::orderBy('updated_at', 'desc')->get();
     }
-    
+
     //matching 予約の確定
     public function matching()
     {
-        return $this->belongsTo(Matching::class,'lesson_user_reservation_id');
+        return $this->belongsTo(Matching::class, 'lesson_user_reservation_id');
     }
-
 }

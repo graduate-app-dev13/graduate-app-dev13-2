@@ -25,7 +25,7 @@ class InquiryController extends Controller
     {
         //問い合わせ一覧
         $inquirys = LessonUserInquiry::getAllOrderByUpdated_at();
-        return response()->view('inquiry.index',compact('inquirys'));
+        return response()->view('inquiry.index', compact('inquirys'));
     }
 
     /**
@@ -34,62 +34,44 @@ class InquiryController extends Controller
     public function create($id)
     {
         //問い合わせを作成する画面
-         //選択に応じて授業データ取得
         $lesson = Lesson::find($id);
-        //ログインしているユーザーの情報取得
         $teacher = auth()->user();
-        //申し込みをする人に応じて学校データ取得
         $school = School::find($teacher->school_id);
 
-        // データが見つかった場合
         if ($lesson) {
-            // ビューにデータを渡して表示
             return view('inquiry.input', [
                 'lesson' => $lesson,
                 'school' => $school,
                 'teacher' => $teacher,
             ]);
         } else {
-            //データが見つからない場合、カスタムエラーページを表示する
             return response()->view('errors.403', [], 403);
         }
     }
 
     /**
-     * 　問い合わせ内容をdbに保存
+     * 問い合わせ内容をdbに保存
      */
     public function store(Request $request)
     {
         try {
-            // db登録
             $user_id = auth()->user()->id;
-
-            //フォームから送信されたデータを取得
             $category_id = $request->input('category_id');
             $category = Category::find($category_id);
             $category_name = $category->category_name;
 
             $inquiry = LessonUserInquiry::create([
-                //input.bladeで存在しているlesson_id
                 'lesson_id' => $request->input('lesson_id'),
                 'user_id' => $user_id,
                 'category_id' => $category_id,
                 'category_name' => $category_name,
                 'inquiry_detail' => $request->input('inquiry_detail'),
             ]);
-
-            // 確認画面にリダイレクト
             return redirect()->route('inquiry.check', ['id' => $inquiry->id]);
-
         } catch (\Exception $e) {
-            // エラーメッセージをログに記録
-            \Log::error('Inquiry store error: ' . $e->getMessage());
-
-            // エラーメッセージをセッションに保存してユーザーに通知
             return redirect()->back()->with('error', '問い合わせできませんでした。');
         }
     }
-
     /**
      *
      *問い合わせ内容の確認（ユーザー）
@@ -97,20 +79,15 @@ class InquiryController extends Controller
     public function check(string $id)
     {
         $inquiry = LessonUserInquiry::find($id);
-        return response()->view('inquiry.check',['inquiry' =>  $inquiry]);
+        return response()->view('inquiry.check', ['inquiry' =>  $inquiry]);
     }
-
     /**
      * 問い合わせの修正（ユーザー）
      */
     public function edit(string $id)
     {
-        //問い合わせ内容の編集
-                // LessonUserReservationsテーブルの$idの情報を取得
         $inquiry = LessonUserInquiry::find($id);
-        //ログインしているユーザーの情報取得
         $teacher = auth()->user();
-        //申し込みをする人に応じて学校データ取得
         $school = School::find($teacher->school_id);
         $lesson = Lesson::find($inquiry->lesson_id);
 
@@ -121,44 +98,34 @@ class InquiryController extends Controller
             'teacher' => $teacher,
         ]);
     }
-
     /**
      * 問い合わせ内容の修正（ユーザー）
      */
     public function update(Request $request, string $id)
     {
-        //問い合わせ内容の取得
         $inquiry = LessonUserInquiry::find($id);
-
-        // カテゴリー情報の取得
         $category_id = $request->input('category_id');
         $category = Category::find($category_id);
         $category_name = $category->category_name;
 
-        // 問い合わせ内容の更新
         $inquiry->update([
             'category_id' => $category_id,
             'category_name' => $category_name,
             'inquiry_detail' => $request->input('inquiry_detail'),
         ]);
 
-        // 確認画面にリダイレクト
-        return redirect()->route('inquiry.check' ,['id' => $inquiry->id]);
-        // ['inquiry' => $inquiry->id]
+        return redirect()->route('inquiry.check', ['id' => $inquiry->id]);
     }
-
     /**
      * 問い合わせ内容のキャンセル・削除
      */
     public function destroy(string $id)
     {
-        //lesson_user_reservationsのdbから削除
         $inquiry = LessonUserInquiry::find($id);
-        $inquiry -> delete();
+        $inquiry->delete();
 
         return redirect()->view('top');
     }
-
     /**
      * 問い合わせ完了画面
      */

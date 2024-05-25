@@ -1,6 +1,6 @@
 <?php
 // MailForm
-//メール通知機能の内容
+//メール通知の内容
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
@@ -10,8 +10,6 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-
-use App\Models\User;
 
 class MailForm extends Mailable
 {
@@ -45,28 +43,9 @@ class MailForm extends Mailable
     {
         return new Content(
             view: 'mail.mail',
-            with: $this->data
+            with: $data,
         );
     }
-        // return new Content(
-        //     //  view: 'mail.mail',
-        //     //  with: [
-        //     //     'orderName' => $this->order->name,
-        //     //     'orderPrice' => $this->order->price,
-        //     // markdown: 'emails.contact',
-        //     // data: ['name' => $this->name],
-        //     // text: 'emails.contact',
-        // ]
-        // );
-    
-    
-    // public function build()
-    // {
-    //     return $this->view('emails.test')
-    //             ->to('XXXXX@XXXXX.jp','鈴木太郎')
-    //             ->from('XXX@XXXX','佐藤一郎')
-    //             ->subject('テストメールです。');
-    // }
 
     /**
      * Get the attachments for the message.
