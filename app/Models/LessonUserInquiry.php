@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class LessonUserInquiry extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'lesson_id',
         'user_id',
@@ -16,19 +16,19 @@ class LessonUserInquiry extends Model
         'category_name',
         'inquiry_detail',
     ];
-    
+
     protected $table = 'lesson_user_inquiries';
-    
+
     public function userLessonUserInquiry()
     {
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function lessonLessonUserInquiry()
     {
         return $this->belongsTo(Lesson::class, 'lesson_id');
     }
-    
+
     public function categoryLessonUserInquiry()
     {
         return $this->belongsTo(Category::class, 'category_id');

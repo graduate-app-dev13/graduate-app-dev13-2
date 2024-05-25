@@ -25,14 +25,14 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('reserve.userreserve')" :active="request()->routeIs('dashboard')">
-                        {{ __('ユーザー履歴') }}
+                        {{ __('の履歴') }}
                     </x-nav-link>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('reserve.schoolreserve')" :active="request()->routeIs('dashboard')">
-                        {{ __('学校履歴') }}
+                        {{ __('の履歴') }}
                     </x-nav-link>
                 </div>
                 @endif

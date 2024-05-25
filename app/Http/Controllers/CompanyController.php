@@ -24,7 +24,7 @@ class CompanyController extends Controller
     {
         $companies = Company::getAllOrderByUpdated_at();
 
-        return response()->view('company.index',compact('companies'));
+        return response()->view('company.index', compact('companies'));
     }
 
     /**

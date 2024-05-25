@@ -15,8 +15,6 @@ class School extends Model
     //     'updated_at',
     // ];
 
-
-    // schoolsテーブルをusersテーブルに結合
     public function userSchools()
     {
         return $this->hasMany(User::class, 'school_id');

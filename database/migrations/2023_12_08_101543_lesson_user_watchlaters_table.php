@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('lesson_user_watchlaters', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('lesson_id')->constrained()->cascadeOnDelete();//授業id
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();//userid
+            $table->foreignId('lesson_id')->constrained()->cascadeOnDelete(); //授業id
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete(); //userid
             $table->unique(['lesson_id', 'user_id']);
             $table->timestamps();
         });
