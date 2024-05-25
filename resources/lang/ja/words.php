@@ -10,5 +10,5 @@ return [
     'teacher' => '先生',
     'lesson' => '授業',
     'history' => '履歴',
-    '' => '',
+    'school' => '小学校',
 ];

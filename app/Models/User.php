@@ -46,11 +46,10 @@ class User extends Authenticatable
 
 
     // schoolテーブルのschool_idとのリレーションシップ
-    public function userSchools()
+    public function school()
     {
         return $this->belongsTo(School::class, 'school_id');
     }
-
     // schoolテーブルのschool_idとのリレーションシップ
     public function Lessons()
     {
@@ -71,8 +70,8 @@ class User extends Authenticatable
         // return [$this->email_address => $this->name];
     }
 
-    // public function sendEmailVerificationNotification()
-    // {
-    //     $this->notify(new \App\Notifications\LessonMail());
-    // }
+    public function getSchoolNameAttribute()
+    {
+        return $this->school ? $this->school->school_name : '学校名が未設定です';
+    }
 }

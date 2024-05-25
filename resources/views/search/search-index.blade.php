@@ -1,10 +1,10 @@
 <!--resource/view/search/index.blade.php-->
 <x-app-layout>
-
     <div>
         @include("components.searchform")
     </div>
 
+<div>
     <div class="bg-white max-w-300 max-w-screen-xl mx-auto h-auto overflow-hidden shadow-sm sm:rounded-lg py-5">
         {{ $lessons->links() }}
         @if ($lessons->isEmpty())
@@ -287,4 +287,5 @@
             </div>
         @endif
     </div>
+</div>
 </x-app-layout>
