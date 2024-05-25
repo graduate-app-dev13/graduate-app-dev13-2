@@ -11,4 +11,6 @@ return [
     'lesson' => '授業',
     'history' => '履歴',
     'school' => '小学校',
+    'graduate' => '学年',
+    'subject' => '教科',
 ];
