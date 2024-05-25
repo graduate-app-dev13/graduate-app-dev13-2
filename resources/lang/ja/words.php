@@ -9,11 +9,9 @@
 return [
     'teacher' => '先生',
     'lesson' => '授業',
-    
     'school' => '小学校',
     'education' => '教育',
     'grade' => '学年',
     'subject' => '教科',
-
     'history' => '履歴',
 ];
