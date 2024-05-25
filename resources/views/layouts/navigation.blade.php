@@ -22,7 +22,7 @@
                     </x-nav-link>
                 </div>
 
-                <!-- Navigation Links -->
+                <!-- Navigation Links 履歴 -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('reserve.userreserve')" :active="request()->routeIs('dashboard')">
                         {{Auth::user()->name}}{{ __('words.teacher') }} {{ __('words.history') }}
@@ -129,16 +129,16 @@
                 {{ __('あとでみる') }}
             </x-responsive-nav-link>
         </div>
-        
+        {{-- ユーザー履歴 --}}
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('reserve.userreserve')"  :active="request()->routeIs('dashboard')">
-                {{ __('ユーザー履歴') }}
+                {{Auth::user()->name}}{{ __('words.teacher') }} {{ __('words.history') }}
             </x-responsive-nav-link>
         </div>
-        
+        {{-- 学校履歴 --}}
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('reserve.schoolreserve')" :active="request()->routeIs('dashboard')">
-                {{ __('学校履歴') }}
+                 {{Auth::user()->school_name}} {{ __('words.school') }}{{ __('words.history') }}
             </x-responsive-nav-link>
         </div>
           @endif
