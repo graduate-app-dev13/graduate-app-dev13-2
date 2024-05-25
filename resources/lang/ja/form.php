@@ -14,6 +14,8 @@ return [
     'inquiry' => '問い合わせ',
     'reset' => 'リセット',
     'cancel' => 'キャンセル',
+    'bookmark' => 'あとでみる',
+
 
     'edit' => [
         'submit' => '編集',

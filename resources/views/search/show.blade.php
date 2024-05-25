@@ -103,7 +103,7 @@
                                         <p class="mt-4">{{ $lesson->lesson_detail }}</p>
 
                                         <!--授業形式のラベル-->
-                                        <p class="mt-4 bg-amber-50 text-lg">@lang('words.graduate')</p>
+                                        <p class="mt-4 bg-amber-50 text-lg">@lang('words.grade')</p>
                                         <p class="mt-4">
                                             @if($lesson->one) <span>1年生 </span>@endif
                                             @if($lesson->two) <span>2年生 </span>@endif
@@ -196,7 +196,7 @@
                                     <form action="{{ route('unwatchlater',$lesson) }}" method="POST" class="text-left">
                                         @csrf
                                         <x-secondary-button class="ml-3">
-                                            あとでみる
+                                            {{ __('form.bookmark') }}
                                             <svg class="h-6 w-6 text-red-500" fill="red" viewBox="0 0 24 24"
                                                 stroke="red">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
@@ -210,12 +210,8 @@
                                     <form action="{{ route('watchlater',$lesson) }}" method="POST" class="text-left">
                                         @csrf
                                         <x-secondary-button class="ml-3">
-                                            あとでみる
-                                            <svg class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24"
-                                                stroke="gray">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                            </svg>
+                                            {{ __('form.bookmark') }}
+                                         <i class="fa-regular fa-star"></i>
                                             {{ $lesson->users()->count() }}
                                         </x-secondary-button>
                                     </form>
