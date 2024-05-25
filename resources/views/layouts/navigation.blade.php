@@ -25,21 +25,21 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('reserve.userreserve')" :active="request()->routeIs('dashboard')">
-                        {{ __('の履歴') }}
+                        {{Auth::user()->name}}{{ __('words.teacher') }} {{ __('words.history') }}
                     </x-nav-link>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('reserve.schoolreserve')" :active="request()->routeIs('dashboard')">
-                        {{ __('の履歴') }}
+                       {{Auth::user()->school_name}} {{ __('words.school') }}{{ __('words.history') }}
                     </x-nav-link>
                 </div>
                 @endif
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('search.index')" :active="request()->routeIs('search.input')">
-                            {{ __('授業検索') }}
+                       {{ __('授業検索') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -172,7 +172,7 @@
             </div>
                      @else
                         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                            <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ログイン</a>
+                            <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ __('ログイン') }}</a>
                             {{-- <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a> --}}
                         </div>
                      @endif
