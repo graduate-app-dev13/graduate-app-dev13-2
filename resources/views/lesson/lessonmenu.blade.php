@@ -74,7 +74,7 @@
                 <div class="mt-3">
                     <x-nav-link :href="route('admin.lesson.index')" :active="request()->routeIs('dashboard')" class="text-blue-500">
                         <h3 class="text-sm sm:text-base font-semibold text-gray-800 dark:text-black-200">
-                        {{ __('授業一覧') }}
+                        {{ __('words.lesson') }}一覧
                         </h3>
                     </x-nav-link>
                 </div>
