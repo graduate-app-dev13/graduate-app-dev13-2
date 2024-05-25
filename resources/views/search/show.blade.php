@@ -103,7 +103,7 @@
                                         <p class="mt-4">{{ $lesson->lesson_detail }}</p>
 
                                         <!--授業形式のラベル-->
-                                        <p class="mt-4 bg-amber-50 text-lg">学年</p>
+                                        <p class="mt-4 bg-amber-50 text-lg">@lang('words.graduate')</p>
                                         <p class="mt-4">
                                             @if($lesson->one) <span>1年生 </span>@endif
                                             @if($lesson->two) <span>2年生 </span>@endif
@@ -115,7 +115,7 @@
                                         </p>
 
                                         <!--対応可能教科のラベル-->
-                                        <p class="mt-4 bg-amber-50 text-lg">教科</p>
+                                        <p class="mt-4 bg-amber-50 text-lg">@lang('words.subject')</p>
                                         <p class="mt-4">
                                             @if($lesson->japanease) <span>国語</span>@endif
                                             @if($lesson->math) <span>算数 </span>@endif
@@ -134,7 +134,7 @@
                                         </p>
 
                                         <!--対応可能教育のラベル-->
-                                        <p class="mt-4 bg-amber-50 text-lg">教育</p>
+                                        <p class="mt-4 bg-amber-50 text-lg">@lang('words.education')</p>
                                         <p class="mt-4">
                                             @php
                                                 $displayed = false;
