@@ -12,7 +12,7 @@
             @csrf
 
             <div class="flex flex-col mb-4 h-12">
-            <x-input-label for="grade" :value="__('学年')" />
+            <x-input-label for="grade" :value="__('words.grade')" />
                 <select id="grade" class="block mt-1 w-full" name="grade">
                     <option value="" {{ request('grade') == '' ? 'selected' : '' }}>---</option>
                     <option value="one" {{ request('grade') == 'one' ? 'selected' : '' }}>１年生</option>
@@ -26,7 +26,7 @@
              </div>
 
             <div class="flex flex-col mb-4 h-12">
-              <x-input-label for="subject" :value="__('教科')" />
+              <x-input-label for="subject" :value="__('words.subject')" />
                 <select id="subject" class="block mt-1 w-full" name="subject">
                     <option value="" {{ request('subject') == '' ? 'selected' : '' }}>---</option>
                     <option value="japanease" {{ request('subject') == 'japanease' ? 'selected' : '' }}>国語</option>
