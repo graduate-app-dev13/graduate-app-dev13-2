@@ -44,31 +44,39 @@
                 <p class="border p-2 w-full sm:w-2/1">{{ $user->name }}</p>
             </div>
 
-
-
-            <h2 class="text-xl font-semibold mt-2">希望情報</h2>
             <div class="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12 mb-2">
                 <!-- 学年入力 -->
                 <div class="col-span-4 lg:col-span-3">
                     <div class="w-full">
-                        <x-input-label for="graduate" :value="__("学年")" />
-                        <select id="graduate" class="w-full" name="graduate" required autofocus>
-                            <option value="" {{ request("graduate") == "" ? "selected" : "" }}>---</option>
-                            <option value="1年生">１年生</option>
-                            <option value="2年生">２年生</option>
-                            <option value="3年生">３年生</option>
-                            <option value="4年生">４年生</option>
-                            <option value="5年生">５年生</option>
-                            <option value="6年生">６年生</option>
-                            <option value="特別支援">特別支援学級</option>
-                        </select>
+                        <div class="col-md-6">
+                            <label for="graduate" class="form-label">対象学年</label>
+                            <select id="graduate" class="form-select w-full" name="graduate" required autofocus>
+                                <option value="" {{ request("graduate") == "" ? "selected" : "" }}>---</option>
+                                <option value="1年生">１年生</option>
+                                <option value="2年生">２年生</option>
+                                <option value="3年生">３年生</option>
+                                <option value="4年生">４年生</option>
+                                <option value="5年生">５年生</option>
+                                <option value="6年生">６年生</option>
+                                <option value="特別支援">特別支援学級</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                <!-- 教科入力 -->
                 <div class="col-span-4 lg:col-span-3">
-                    <div class="w-full">
-                        <x-input-label for="subject" :value="__("教科")" />
-                        <select id="subject" class="block w-full" name="subject" required autofocus>
+                    <div class="col-md-6">
+                        <label for="number_student" class="form-label">対象人数</label>
+                        <div class="input-group mb-3">
+                            <input type="number" name="number_student" class="form-control" placeholder="人数入力" aria-label="" aria-describedby="" min="0" inputmode="numeric" oninput="this.value = Math.round(this.value)" required autofocus>
+                            <span class="input-group-text" id="basic-addon2">人</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-span-4 lg:col-span-3">
+                    <div class="col-md-6">
+                        <label for="subject" class="form-label">対象教科</label>
+                        <select id="subject" class="form-select w-full" name="subject" required autofocus>
                             <option value="" {{ request("subject") == "" ? "selected" : "" }}>---</option>
                             <option value="国語" {{ request("subject") == "japanease" ? "selected" : "" }}>国語</option>
                             <option value="算数" {{ request("subject") == "math" ? "selected" : "" }}>算数</option>
@@ -96,12 +104,7 @@
                     </div>
                 </div>
                 <!-- 人数入力 -->
-                <div class="col-span-4 lg:col-span-3">
-                    <div class="w-full">
-                        <x-input-label for="number_student" :value="__("人数")" class="w-full" />
-                        <input type="text" name="number_student" class="border p-2 w-full" required autofocus />人
-                    </div>
-                </div>
+                
             </div>
             <!--授業希望日-->
             <div class="mb-4">
@@ -160,12 +163,20 @@
                 </div>
             </div>
             <!--授業希望日-->
+
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+                Check me out
+            </label>
+            </div>
             <input type="hidden" name="lesson_id" value="{{ $lesson->id }}" />
 
             <!-- 送信ボタン 右よりにしたいなあ-->
             <div class="mt-6 text-right">
                 <x-primary-button type="submit">決 定</x-primary-button>
             </div>
+
         </form>
     </div>
 </x-app-layout>
