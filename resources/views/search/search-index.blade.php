@@ -1,10 +1,71 @@
 <!--resource/view/search/index.blade.php-->
 <x-app-layout>
     <div>
-        @include("components.searchform")
+        @include("components.teacher.searchform")
     </div>
 
-<div>
+    <div class="bg-white max-w-300 max-w-screen-xl mx-auto h-auto overflow-hidden shadow-sm sm:rounded-lg">
+    {{ $lessons->links() }}
+
+        <div class="container">
+        @if ($lessons->isEmpty())
+            <p class="text-center text-gray-500 mt-8">検索条件に一致する授業がありません。</p>
+        @else
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach ($lessons as $lesson)
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ asset($lesson->image) }}" class="card-img-top" alt="..." style="width: 100%; height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $lesson->lesson_name }}</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-4 text-secondary">学年</div>
+                                <div class="col-sm-8">
+                                    @if ($lesson->one)
+                                    <span class="badge rounded-pill text-bg-info">1年生</span>
+                                    @endif
+                                    @if ($lesson->two)
+                                        <span>2年生 </span>
+                                    @endif
+                                    @if ($lesson->three)
+                                        <span>3年生 </span>
+                                    @endif
+                                    @if ($lesson->four)
+                                        <span>4年生 </span>
+                                    @endif
+                                    @if ($lesson->five)
+                                        <span>5年生 </span>
+                                    @endif
+                                    @if ($lesson->six)
+                                        <span>6年生 </span>
+                                    @endif
+                                    @if ($lesson->seven)
+                                        <span>特別支援 </span>
+                                    @endif
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                    </ul>
+                </div>
+            </div>
+            @endforeach
+            </div>
+        @endif
+        </div>
+    </div>
+
+    </x-app-layout>
+
+
+
+<x-app-layout>
+
     <div class="bg-white max-w-300 max-w-screen-xl mx-auto h-auto overflow-hidden shadow-sm sm:rounded-lg py-5">
         {{ $lessons->links() }}
         @if ($lessons->isEmpty())
@@ -287,5 +348,6 @@
             </div>
         @endif
     </div>
+</div>
 </div>
 </x-app-layout>

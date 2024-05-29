@@ -20,6 +20,6 @@
 </div>
 
     <div>
-   　　 @include('components.searchform')
+   　　 @include('components.teacher.searchform')
     </div>
 </x-app-layout>

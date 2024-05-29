@@ -12,7 +12,7 @@
 
 
   <div class="">
-  @include('components.searchform')
+  @include('components.teacher.searchform')
   </div>
 
   <!-- Grid -->

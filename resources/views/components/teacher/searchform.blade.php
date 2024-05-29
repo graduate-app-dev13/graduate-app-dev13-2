@@ -1,8 +1,5 @@
 <div class="bg-white max-w-300 max-w-screen-xl mx-auto h-auto overflow-hidden shadow-sm sm:rounded-lg">
-
-  
    <h2 class="text-xl font-bold mt-4 text-center">授　業　検　索</h2>
-
   <div class="py-12">
     <div class="w-full max-w-3xl mx-auto p-6 bg-white shadow-md overflow-hidden sm:rounded-lg">
       <div class="bg-white max-w-300 mx-auto h-auto overflow-hidden shadow-sm sm:rounded-lg items-center">
@@ -99,11 +96,11 @@
         </div>
         
 
-            <div class="flex justify-end mt-4">
-              <x-primary-button class="ml-3 mt-4">
-                <i class="fa-solid fa-magnifying-glass"></i>{{ __('授業検索') }}
-              </x-primary-button>
-            </div>
+              <div class="flex justify-end mt-4">
+                <x-primary-button >
+                <i class="bi bi-search"></i> {{ __('form.button.search') }}
+                </x-primary-button>
+              </div>
           </form>
         </div>
       </div>
