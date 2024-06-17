@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Console\View\Components\TwoColumnDetail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
+use function PHPUnit\Framework\once;
 
 class Lesson extends Model
 {
@@ -88,5 +91,81 @@ class Lesson extends Model
     public function company()
     {
         return $this->belongsTo(Company::class, 'company_id');
+    }
+    //該当学年を取得
+    public function getLessonGradesAttribute()
+    {
+        // テーブルのカラムがtrueか調べる
+        $grades = [
+            'one' => '1年生',
+            'two' => '2年生',
+            'three' => '3年生',
+            'four' => '4年生',
+            'five' => '5年生',
+            'six' => '6年生',
+            'seven' => '特別支援',
+        ];
+        // 該当する学年を取得
+        $result = [];
+        foreach ($grades as $column => $label) {
+            if ($this->$column) {
+                $result[] = $label;
+            }
+        }
+        if (empty($result)){
+            $result[] = "該当なし";
+        }
+
+        return $result;
+    }
+    // 該当教科を取得する
+    public function getLessonSubjectsAttribute()
+    {
+        $subjects = [
+            'japanease' => '国語',
+            'math' => '算数',
+            'society' => '社会',
+            'science' => '理科',
+            'english' => '外国語',
+            'music' => '音楽',
+            'art_and_crafts' => '図工',
+            'home_economics' => '家庭科',
+            'physical_education' => '体育',
+            'life_skills' => '生活',
+            'ethics' => '道徳',
+            'integrated_studies' => '総合',
+            'special_activities' => '特別活動',
+            'club_activities' => 'クラブ活動',
+        ];
+
+        $result = [];
+        foreach ($subjects as $column => $label) {
+            if ($this->$column) {
+                $result[] = $label;
+            }
+        }
+        if (empty($result)){
+            $result[] = "該当なし";
+        }
+
+        return $result;
+    }
+
+    // 該当教育タイプを取得する
+    public function getLessonEducationTypesAttribute()
+    {
+        $educationTypes = self::getEducationTypes();
+
+        $result = [];
+        foreach ($educationTypes as $column => $label) {
+            if ($this->$column) {
+                $result[] = $label;
+            }
+        }
+        if (empty($result)){
+            $result[] = "該当なし";
+        }
+
+        return $result;
     }
 }
