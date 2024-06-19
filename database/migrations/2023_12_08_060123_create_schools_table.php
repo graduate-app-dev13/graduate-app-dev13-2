@@ -15,13 +15,16 @@ return new class extends Migration
         Schema::create('schools', function (Blueprint $table) {
             $table->id();
             $table->text('school_name'); // 学校名
-            $table->string('school_number'); // 学校番号
+            $table->integer('school_number'); // 学校番号
             $table->string('tel_number'); // 電話番号
-            $table->string('fax_number'); // FAX番号
-            $table->string('email'); // 学校メール
-            $table->string('post_code'); // 郵便番号
-            $table->text('address'); // 住所
-            $table->string('area_id'); // 地域id
+            $table->string('fax_number')->nullable(); // FAX番号
+            $table->string('email')->nullable(); // 学校メール
+            $table->string('post_code', 10); // 郵便番号 (郵便番号の一般的な長さを考慮)
+            $table->string('address1'); // 住所 県名
+            $table->string('address2'); // 住所 市区町村
+            $table->string('address3'); // 住所 番地
+            $table->unsignedInteger('area_id')->default(0); // 地域id default 0:該当なし
+            $table->unsignedTinyInteger('invalid_flag')->default(0); // 無効フラグ 0:有効 1:無効 2:削除 デフォルト0
             $table->timestamps();
         });
     }
