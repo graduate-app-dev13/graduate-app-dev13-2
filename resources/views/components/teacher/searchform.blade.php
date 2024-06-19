@@ -1,14 +1,14 @@
 <div class="max-w-300 max-w-screen-xl mx-auto card align-items-center">
 
     @include('common.errors')
-    <div class="g-3 mt-3 align-items-center card row col-sm-8">
+    <div class="g-3 mt-3 align-items-center card row col-sm-9">
         <form class="g-3" action="{{ route('search.index') }}" method="GET">
             @csrf
             <div >
-                <h2>授　業　検　索</h2>
+                <h2 class="fs-2 text-center">授　業　検　索</h2>
             </div>
             <div class="row mb-3 mt-3">
-                <label for="grade" class="col-sm-1 col-form-label">{{ __('words.grade') }}</label>
+                <label for="grade" class="col-sm-3 col-form-label text-center">{{ __('words.grade') }}</label>
                 <div class="col-sm-5">
                     <select id="grade" class="form-select" name="grade">
                         <option value="" {{ request('grade')=='' ? 'selected' : '' }}>---</option>
@@ -24,7 +24,7 @@
             </div>
 
             <div class="row mb-3">
-                <label for="grade" class="col-sm-1 col-form-label">{{ __('words.subject') }}</label>
+                <label for="grade" class="col-sm-3 col-form-label text-center">{{ __('words.subject') }}</label>
                 <div class="col-sm-5">
                     <select id="subject" class="form-select" name="subject">
                         <option value="" {{ request('subject') == '' ? 'selected' : '' }}>---</option>
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="grade" class="col-sm-1 col-form-label">{{ __('○○教育') }}</label>
+                <label for="grade" class="col-sm-3 col-form-label text-center">{{ __('○○教育') }}</label>
                 <div class="col-sm-5">
                     <select id="education" class="form-select" name="education">
                         <option value="" {{ request('education') == '' ? 'selected' : '' }}>---</option>
