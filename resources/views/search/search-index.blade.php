@@ -1,10 +1,68 @@
-<!--resource/view/search/index.blade.php-->
 <x-app-layout>
-    <div>
-        @include("components.searchform")
-    </div>
+        @include("components.teacher.searchform")
 
-<div>
+        <div class="row row-cols-10 row-cols-md-4 g-4 m-3 pb-10">
+
+            @if ($lessons->isEmpty())
+            <p class="text-center text-gray-500 mt-8">検索条件に一致する授業がありません。</p>
+            @else
+                @foreach ($lessons as $lesson)
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="{{ asset($lesson->image) }}" class="card-img-top img-fluid" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $lesson->lesson_name }}</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-sm-4 text-secondary">学年</div>
+                                        <div class="col-sm-8">
+                                            @foreach ($lesson->lesson_grades as $grade)
+                                            <span class="badge rounded-pill bg-info text-white">{{$grade}}</span>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-sm-4 text-secondary">教科</div>
+                                        <div class="col-sm-8">
+                                            @foreach ($lesson->lesson_subjects as $subject)
+                                            <span class="badge rounded-pill bg-info text-white">{{$subject}}</span>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-sm-4 text-secondary">教育</div>
+                                        <div class="col-sm-8">
+                                            @foreach ($lesson->lesson_education_types as $edu)
+                                            <span class="badge rounded-pill bg-info text-white">{{$edu}}</span>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="{{ route('search.show', $lesson->id) }}" class="btn btn-outline-primary w-100">詳  細</a>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            @endif
+        </div>
+</x-app-layout>
+
+
+
+
+
+
+
+{{--
+<x-app-layout>
     <div class="bg-white max-w-300 max-w-screen-xl mx-auto h-auto overflow-hidden shadow-sm sm:rounded-lg py-5">
         {{ $lessons->links() }}
         @if ($lessons->isEmpty())
@@ -288,4 +346,5 @@
         @endif
     </div>
 </div>
-</x-app-layout>
+</div>
+</x-app-layout> --}}

@@ -4,7 +4,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Validator;
 use App\Models\Lesson;
 use App\Models\Company;
@@ -82,7 +81,7 @@ class LessonController extends Controller
                 ->withInput()
                 ->withErrors($validator);
         }
-        
+
         $result = Lesson::create($request->all());
 
         return redirect()->route('lesson.index');
@@ -92,7 +91,9 @@ class LessonController extends Controller
      */
     public function show(string $id)
     {
-        $lesson = Lesson::find($id);
+        $lesson = Lesson::where('id',$id)
+        ->with('company');
+
         return view('lesson.show', compact('lesson'));
     }
     /**
@@ -147,7 +148,7 @@ class LessonController extends Controller
      */
     public function destroy(string $id)
     {
-        $lesson = Lesson::find($id)->delete();
+        Lesson::find($id)->delete();
         return redirect()->route('lesson.index');
     }
 }
