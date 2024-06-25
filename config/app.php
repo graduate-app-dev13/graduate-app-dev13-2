@@ -167,8 +167,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        //DomPDFの設定
-        Barryvdh\DomPDF\ServiceProvider::class,
+        // Barryvdh\DomPDF\ServiceProvider::class,
+        App\Providers\TCPDFServiceProvider::class,
+
     ])->toArray(),
 
     /*
@@ -184,9 +185,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-        
-        //DomPDF use PDFでよぶため
-        'PDF' => Barryvdh\DomPDF\Facade::class,
+
+        //TCPDFを　 use TCPDFでよぶためのエイリアス
     ])->toArray(),
 
 ];
